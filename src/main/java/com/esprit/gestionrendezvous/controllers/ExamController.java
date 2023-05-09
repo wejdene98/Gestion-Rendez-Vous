@@ -29,9 +29,10 @@ public class ExamController {
     private IExamService examService;
 
     @Operation(description = " add Medecin  And Assign To Clinique ")
-    @PostMapping(value = "/medecin/add")
-    public void addMedecinAndAssignToClinique(@RequestBody Medecin medecin, Long cliniqueId) {
+    @PostMapping(value = "/medecin/add/{cliniqueId}")
+    public void addMedecinAndAssignToClinique(@RequestBody Medecin medecin, @PathVariable Long cliniqueId) {
         examService.addMedecinAndAssignToClinique(medecin, cliniqueId);
+
     }
 
     @Operation(description = " add clinique ")
